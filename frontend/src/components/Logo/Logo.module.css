@@ -1,0 +1,91 @@
+.logoWrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: default;
+  user-select: none;
+}
+
+.logoIcon {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* ── Animations ─────────────────────────────────────────── */
+.logoIcon.animated .sPath {
+  stroke-dasharray: 200;
+  animation: drawPath 3s ease-in-out infinite alternate;
+}
+
+.logoIcon.animated .boltPath {
+  stroke-dasharray: 100;
+  animation: drawBolt 2s ease-in-out infinite alternate;
+}
+
+.logoIcon.animated .orbitDot {
+  transform-origin: 50px 50px;
+  animation: orbitAnimation 4s linear infinite;
+}
+
+.logoIcon.animated .dot1 {
+  animation: pulseDot 2s ease-in-out infinite;
+}
+
+.logoIcon.animated .dot2 {
+  animation: pulseDot 2s ease-in-out infinite 1s;
+}
+
+@keyframes drawPath {
+  0%   { stroke-dashoffset: 200; opacity: 0.5; }
+  50%  { stroke-dashoffset: 0;   opacity: 1;   }
+  100% { stroke-dashoffset: -200; opacity: 0.5; }
+}
+
+@keyframes drawBolt {
+  0%, 100% { opacity: 0.5; transform: scale(0.95); }
+  50%       { opacity: 1;   transform: scale(1.08); }
+}
+
+@keyframes orbitAnimation {
+  from { transform: rotate(0deg) translateX(30px) rotate(0deg); }
+  to   { transform: rotate(360deg) translateX(30px) rotate(-360deg); }
+}
+
+@keyframes pulseDot {
+  0%, 100% { opacity: 0.3; transform: scale(0.7); }
+  50%       { opacity: 1;   transform: scale(1.4); }
+}
+
+/* ── Logo Text ──────────────────────────────────────────── */
+.logoText {
+  font-family: 'Outfit', sans-serif;
+  font-size: calc(var(--size) * 0.62);
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+  line-height: 1;
+  transition: color 0.3s ease;
+}
+
+/* White variant for dark backgrounds (auth left panel) */
+.logoTextLight {
+  color: #ffffff !important;
+}
+
+.logoTextAccent {
+  background: linear-gradient(135deg, #7c3aed, #06b6d4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Light variant accent: soft glow on dark bg */
+.logoTextAccentLight {
+  background: linear-gradient(135deg, #e0c4ff, #67e8f9);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}

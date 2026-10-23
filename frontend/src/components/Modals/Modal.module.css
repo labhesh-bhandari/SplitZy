@@ -1,0 +1,411 @@
+/* ════════════════════════════════════════
+   Shared Modal Styles
+   ════════════════════════════════════════ */
+
+.modalHeader {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.modalIconWrapper {
+  width: 46px;
+  height: 46px;
+  border-radius: var(--radius-lg);
+  background: rgba(124, 58, 237, 0.1);
+  color: var(--brand-purple);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.modalTitle {
+  font-size: 20px;
+  font-weight: 800;
+  margin-bottom: 3px;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+}
+
+.modalSub {
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.closeBtn {
+  margin-left: auto;
+  width: 34px;
+  height: 34px;
+  padding: 0 !important;
+  flex-shrink: 0;
+  color: var(--text-tertiary) !important;
+  border-radius: var(--radius-md);
+}
+.closeBtn:hover {
+  color: var(--text-primary) !important;
+  background: var(--bg-tertiary) !important;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* ── Members list (Create Group) ────────────── */
+.membersList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.memberRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.memberNum {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--bg-tertiary);
+  color: var(--text-tertiary);
+  font-size: 12px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.memberInput { flex: 1; }
+
+.removeMemberBtn {
+  width: 34px;
+  height: 34px;
+  padding: 0 !important;
+  flex-shrink: 0;
+  color: var(--text-tertiary) !important;
+}
+.removeMemberBtn:hover:not(:disabled) {
+  color: var(--error) !important;
+  background: var(--error-bg) !important;
+}
+
+.addMemberBtn {
+  width: 100%;
+  border: 1.5px dashed var(--border-medium) !important;
+  color: var(--text-secondary) !important;
+  border-radius: var(--radius-md);
+}
+.addMemberBtn:hover {
+  border-color: var(--brand-purple) !important;
+  color: var(--brand-purple) !important;
+  background: rgba(124, 58, 237, 0.05) !important;
+}
+
+/* ── Amount field ───────────────────────────── */
+.amountWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.currencySymbol {
+  position: absolute;
+  left: 14px;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-secondary);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.amountInput {
+  padding-left: 34px !important;
+  padding-right: 130px !important;
+  font-size: 18px !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.01em;
+}
+
+.sharePreview {
+  position: absolute;
+  right: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--success);
+  background: var(--success-bg);
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  pointer-events: none;
+  border: 1px solid rgba(16, 185, 129, 0.2);
+  white-space: nowrap;
+}
+
+/* ── Custom Dropdown (Paid By) ──────────────── */
+.customDropdown {
+  position: relative;
+  width: 100%;
+}
+
+/* Trigger button */
+.dropdownTrigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  background: var(--bg-tertiary);
+  border: 1.5px solid var(--border-light);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: border-color 0.18s, box-shadow 0.18s, background 0.18s;
+  text-align: left;
+}
+.dropdownTrigger:hover {
+  border-color: var(--border-brand);
+  background: var(--bg-secondary);
+}
+.dropdownOpen .dropdownTrigger {
+  border-color: var(--brand-purple);
+  background: var(--bg-secondary);
+  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.12);
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+/* Shared avatar style inside dropdown */
+.dropdownAvatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  color: white;
+  font-family: 'Outfit', sans-serif;
+  font-size: 15px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.dropdownValue {
+  flex: 1;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.dropdownChevron {
+  color: var(--text-tertiary);
+  transition: transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1), color 0.18s;
+  flex-shrink: 0;
+}
+.chevronUp {
+  transform: rotate(180deg);
+  color: var(--brand-purple);
+}
+
+/* Panel */
+.dropdownPanel {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: var(--z-dropdown);
+  background: var(--bg-card);
+  border: 1.5px solid var(--brand-purple);
+  border-top: none;
+  border-bottom-left-radius: var(--radius-md);
+  border-bottom-right-radius: var(--radius-md);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.14), 0 4px 8px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  animation: dropdownSlide 0.18s cubic-bezier(0.34, 1.2, 0.64, 1) both;
+}
+
+@keyframes dropdownSlide {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Option */
+.dropdownOption {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.15s;
+}
+.dropdownOption:hover {
+  background: var(--bg-tertiary);
+}
+
+.dropdownOptionLabel {
+  flex: 1;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.optionSelected {
+  background: rgba(124, 58, 237, 0.06);
+}
+.optionSelected .dropdownOptionLabel {
+  font-weight: 700;
+  color: var(--brand-purple);
+}
+
+.optionCheck {
+  color: var(--brand-purple);
+  flex-shrink: 0;
+}
+
+/* Divider between options */
+.dropdownOption + .dropdownOption {
+  border-top: 1px solid var(--border-light);
+}
+
+/* ── Split Among ─────────────────────────────── */
+.splitLabelRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.splitCount {
+  color: var(--brand-purple);
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.splitQuickActions {
+  display: flex;
+  gap: 4px;
+}
+
+.splitHint {
+  font-size: 12px;
+  color: var(--text-tertiary);
+  text-align: center;
+  padding: 8px;
+  border: 1.5px dashed var(--border-light);
+  border-radius: var(--radius-md);
+  margin-bottom: 10px;
+  background: var(--bg-tertiary);
+}
+
+.memberGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 8px;
+}
+
+.memberToggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 12px;
+  border-radius: var(--radius-md);
+  background: var(--bg-tertiary);
+  border: 1.5px solid var(--border-light);
+  cursor: pointer;
+  transition: all 0.18s ease;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-align: left;
+}
+.memberToggle:hover {
+  border-color: var(--border-brand);
+  color: var(--brand-purple);
+  background: rgba(124, 58, 237, 0.04);
+  transform: translateY(-1px);
+}
+
+.memberSelected {
+  background: rgba(124, 58, 237, 0.08) !important;
+  border-color: var(--brand-purple) !important;
+  color: var(--brand-purple) !important;
+  box-shadow: 0 0 0 1px rgba(124, 58, 237, 0.15);
+}
+
+.toggleAvatar {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--bg-secondary);
+  color: var(--text-tertiary);
+  font-size: 12px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 1.5px solid var(--border-light);
+  transition: all 0.18s;
+}
+.toggleAvatarSelected {
+  color: white !important;
+  border-color: transparent !important;
+}
+
+.toggleName {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 13px;
+}
+
+.toggleCheck {
+  font-size: 11px;
+  font-weight: 800;
+  color: var(--brand-purple);
+  background: rgba(124, 58, 237, 0.15);
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.splitSummary {
+  padding: 10px 14px;
+  border-radius: var(--radius-md);
+  background: var(--gradient-brand-soft);
+  border: 1px solid var(--border-brand);
+  font-size: 13px;
+  color: var(--brand-purple);
+  font-weight: 600;
+  text-align: center;
+  margin-top: 6px;
+}
+
+/* ── Modal Actions ──────────────────────────── */
+.modalActions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-top: 4px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border-light);
+}
+
+/* ── Responsive ─────────────────────────────── */
+@media (max-width: 480px) {
+  .memberGrid { grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); }
+}
