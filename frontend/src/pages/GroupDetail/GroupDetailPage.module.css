@@ -431,26 +431,29 @@
   .expenseAmount { font-size: 20px; }
   .expenseShare  { font-size: 12px; }
 
-  /* Settlement CTA */
+  /* Settlement CTA — prevent btn-lg overflow */
   .settlementCTA {
     flex-direction: column;
-    align-items: stretch;      /* stretch so children fill width */
-    padding: 20px 16px;
-    gap: 16px;
+    align-items: stretch;
+    padding: 18px 16px;
+    gap: 14px;
     overflow: hidden;
+    max-width: 100%;
+    box-sizing: border-box;
   }
   .ctaInfo { gap: 12px; }
   .ctaIconWrap { width: 40px; height: 40px; flex-shrink: 0; }
   .ctaTitle { font-size: 15px; }
-  .ctaSub   { font-size: 12px; }
-  /* Button: full width, text won't overflow */
+  .ctaSub   { font-size: 12px; white-space: normal; }
+
+  /* Full-width CTA button — defeat btn-lg with !important */
   .settlementCTA .btn {
-    width: 100%;
-    justify-content: center;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    font-size: 14px;
-    padding: 12px 16px;
+    width: 100% !important;
+    max-width: 100% !important;
+    justify-content: center !important;
+    padding: 12px 16px !important;   /* override btn-lg's 28px horizontal */
+    font-size: 14px !important;      /* override btn-lg's 16px */
+    white-space: normal !important;  /* allow text to wrap if needed */
+    box-sizing: border-box !important;
   }
 }
