@@ -91,17 +91,8 @@ export default function DashboardPage() {
               </div>
             </div>
             <div className={styles.statCard}>
-              <div className={styles.statIcon} style={{ background: 'rgba(37,99,235,0.1)' }}>
-                <Receipt size={20} style={{ color: 'var(--brand-blue)' }} />
-              </div>
-              <div>
-                <div className={styles.statNum}>{totalExpenses}</div>
-                <div className={styles.statLbl}>Total Expenses</div>
-              </div>
-            </div>
-            <div className={styles.statCard}>
-              <div className={styles.statIcon} style={{ background: 'rgba(6,182,212,0.1)' }}>
-                <TrendingUp size={20} style={{ color: 'var(--brand-cyan)' }} />
+              <div className={styles.statIcon} style={{ background: 'rgba(16,185,129,0.1)' }}>
+                <TrendingUp size={20} style={{ color: 'var(--success)' }} />
               </div>
               <div>
                 <div className={styles.statNum}>

@@ -344,17 +344,35 @@
 }
 
 @media (max-width: 640px) {
-  .header { padding: 28px 0 24px; }
+  .header { padding: 24px 0 20px; }
   .headerContent, .content { padding-left: 16px; padding-right: 16px; }
-  .welcomeTitle { font-size: 28px; }
-  .welcomeSub { font-size: 15px; }
-  .content { padding-top: 24px; }
-  .grid { grid-template-columns: 1fr; gap: 16px; }
-  .statsStrip { gap: 10px; }
-  .statCard { min-width: 0; flex: 1; padding: 14px 16px; }
-  .statNum { font-size: 24px; }
+  .welcomeTitle { font-size: 26px; }
+  .welcomeSub { font-size: 14px; }
+  .content { padding-top: 20px; }
+  .grid { grid-template-columns: 1fr; gap: 14px; }
   .toolbar { gap: 10px; }
-  .groupCard { padding: 20px; }
-  .groupAvatar { width: 46px; height: 46px; font-size: 20px; }
+  .groupCard { padding: 18px; }
+  .groupAvatar { width: 44px; height: 44px; font-size: 20px; }
   .groupTitle { font-size: 16px; }
+
+  /* ── Stats: 2-column side-by-side grid, no scroll ── */
+  .statsStrip {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    flex-wrap: unset;
+    overflow-x: unset;
+  }
+  .statCard {
+    min-width: 0;
+    padding: 14px 16px;
+  }
+  .statNum  { font-size: 26px; }
+  .statLbl  { font-size: 13px; }
+  .statIcon { width: 40px; height: 40px; }
+}
+
+/* ── Very small screens: stack stats ── */
+@media (max-width: 380px) {
+  .statsStrip { grid-template-columns: 1fr; }
 }

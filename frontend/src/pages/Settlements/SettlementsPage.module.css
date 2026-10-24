@@ -216,10 +216,10 @@
   background: var(--bg-card);
   border: 1px solid var(--border-light);
   border-radius: var(--radius-xl);
-  padding: 22px 28px;
+  padding: 20px 24px;
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 0;
   box-shadow: var(--shadow-sm);
   transition: all 0.25s;
   position: relative;
@@ -243,34 +243,37 @@
 }
 .transactionCard:hover::before { opacity: 1; }
 
+/* Index badge */
 .transIndex {
-  width: 32px;
-  height: 32px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
   background: var(--gradient-brand-soft);
   color: var(--brand-purple);
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 700;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
   border: 1px solid var(--border-brand);
+  margin-right: 16px;
 }
 
+/* Person block — fixed natural width on desktop */
 .personBlock {
   display: flex;
   align-items: center;
-  gap: 14px;
-  flex: 1;
-  min-width: 0;
+  gap: 12px;
+  flex: 0 0 auto;
+  min-width: 120px;
 }
 .personAvatar {
-  width: 50px;
-  height: 50px;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
   color: white;
-  font-size: 20px;
+  font-size: 19px;
   font-weight: 800;
   font-family: 'Outfit', sans-serif;
   display: flex;
@@ -280,15 +283,13 @@
   box-shadow: var(--shadow-md);
   transition: transform 0.2s;
 }
-.transactionCard:hover .personAvatar { transform: scale(1.08); }
+.transactionCard:hover .personAvatar { transform: scale(1.06); }
 .personInfo { min-width: 0; }
 .personName {
   display: block;
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 700;
   color: var(--text-primary);
-  overflow: hidden;
-  text-overflow: ellipsis;
   white-space: nowrap;
 }
 .personRole {
@@ -296,30 +297,36 @@
   font-size: 11px;
   color: var(--text-tertiary);
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.06em;
   margin-top: 2px;
 }
 
-/* Arrow */
+/* Arrow + amount — flex:1 so it fills the space and stays centred */
 .arrowBlock {
+  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 6px;
-  flex-shrink: 0;
+  justify-content: center;
+  gap: 4px;
+  padding: 0 8px;
 }
 .amountBubble {
   background: var(--gradient-brand);
   color: white;
   font-family: 'Outfit', sans-serif;
-  font-size: 17px;
+  font-size: 16px;
   font-weight: 800;
-  padding: 7px 18px;
+  padding: 7px 20px;
   border-radius: var(--radius-full);
   box-shadow: var(--shadow-brand);
   white-space: nowrap;
 }
-.arrowIcon { color: var(--text-tertiary); }
+/* Arrow line under the bubble */
+.arrowIcon {
+  color: var(--text-tertiary);
+  display: block;
+}
 
 /* Actions */
 .actions {
@@ -335,16 +342,67 @@
   .headerContent, .body { padding-left: 24px; padding-right: 24px; }
   .title { font-size: 26px; }
 }
+
 @media (max-width: 640px) {
   .headerContent, .body { padding-left: 16px; padding-right: 16px; }
-  .body { padding-top: 24px; gap: 16px; }
-  .transactionCard { flex-wrap: wrap; padding: 18px; }
-  .arrowBlock { flex-direction: row; width: 100%; justify-content: center; }
-  .amountBubble { font-size: 15px; }
+  .body { padding-top: 20px; gap: 14px; }
   .calcTime { display: none; }
   .summaryCard { flex-wrap: wrap; }
-  .title { font-size: 22px; }
-  .titleIcon { width: 48px; height: 48px; }
+  .title { font-size: 20px; }
+  .titleIcon { width: 44px; height: 44px; }
   .actions { flex-direction: column; }
   .actions .btn { width: 100%; justify-content: center; }
+
+  /* ── Mobile: stack everything, centre align ── */
+  .transactionCard {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px 16px;
+    gap: 0;
+  }
+
+  .transIndex {
+    margin-right: 0;
+    margin-bottom: 14px;
+    width: 28px;
+    height: 28px;
+    font-size: 12px;
+  }
+
+  .personBlock {
+    flex-direction: column;   /* avatar on top, name below */
+    align-items: center;
+    gap: 6px;
+    min-width: 0;
+    width: 100%;
+  }
+
+  .personAvatar {
+    width: 48px;
+    height: 48px;
+    font-size: 18px;
+  }
+
+  .personInfo { text-align: center; }
+  .personName { font-size: 15px; white-space: normal; }
+
+  /* Arrow block: centred column, amount then ↓ */
+  .arrowBlock {
+    flex-direction: column;
+    align-items: center;
+    padding: 14px 0;
+    gap: 4px;
+    width: 100%;
+  }
+
+  /* Rotate → to ↓ on mobile */
+  .arrowIcon { transform: rotate(90deg); }
+
+  /* Amount bubble above the rotated arrow */
+  .amountBubble {
+    font-size: 15px;
+    padding: 6px 18px;
+    order: -1;
+  }
 }
