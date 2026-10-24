@@ -273,7 +273,7 @@ export default function GroupDetailPage() {
             </div>
             <button
               id="settlement-btn"
-              className={`btn btn-lg btn-primary ${btnCfg.cls}`}
+              className={`btn btn-primary ${styles.ctaBtn} ${btnCfg.cls}`}
               onClick={() => navigate(`/groups/${groupId}/settlements`)}
             >
               {btnCfg.icon}
